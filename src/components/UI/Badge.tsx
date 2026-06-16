@@ -13,7 +13,7 @@ interface BadgeProps {
 }
 
 const variantStyles: Record<BadgeVariant, string> = {
-  primary: 'bg-primary/15 text-primary',
+  primary: 'bg-primary text-white',
   secondary: 'bg-secondary/15 text-secondary',
   accent: 'bg-accent/15 text-accent',
   orange: 'bg-orange/15 text-orange',

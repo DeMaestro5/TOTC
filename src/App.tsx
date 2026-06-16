@@ -3,6 +3,7 @@ import Badge from './components/UI/Badge';
 import Button from './components/UI/Button';
 import CategoryPill from './components/UI/CategoryPill';
 import FeatureItem from './components/UI/FeatureItem';
+import NewsCard from './components/UI/NewsCard';
 import Rating from './components/UI/Rating';
 import SectionHeader from './components/UI/SectionHeader';
 import StatCard from './components/UI/StatCard';
@@ -213,6 +214,44 @@ function App() {
             price: 320,
           }}
         />
+      </div>
+
+      <div className='p-10 flex gap-8 max-w-4xl'>
+        {/* Featured */}
+        <NewsCard
+          variant='featured'
+          thumbnail='https://picsum.photos/seed/news1/600/400'
+          category='NEWS'
+          title='Class adds $30 million to its balance sheet for a Zoom-friendly edtech solution'
+          description='Class, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...'
+          showReadMore
+          className='w-72'
+        />
+
+        {/* Compact stack */}
+        <div className='flex flex-col gap-6 flex-1'>
+          <NewsCard
+            variant='compact'
+            thumbnail='https://picsum.photos/seed/news2/300/200'
+            category='PRESS RELEASE'
+            title='Class Technologies Inc. Closes $30 Million Series A Financing to Meet High Demand'
+            description='Class Technologies Inc., the company that created Class,...'
+          />
+          <NewsCard
+            variant='compact'
+            thumbnail='https://picsum.photos/seed/news3/300/200'
+            category='NEWS'
+            title="Zoom's earliest investors are betting millions on a better Zoom for schools"
+            description='Zoom was never created to be a consumer product. Nonetheless the...'
+          />
+          <NewsCard
+            variant='compact'
+            thumbnail='https://picsum.photos/seed/news4/300/200'
+            category='NEWS'
+            title='Former Blackboard CEO Raises $16M to Bring LMS Features to Zoom Classrooms'
+            description='This year, investors have reaped big financial returns from betting on Zoom...'
+          />
+        </div>
       </div>
     </>
   );
