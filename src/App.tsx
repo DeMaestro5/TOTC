@@ -8,6 +8,7 @@ import Rating from './components/UI/Rating';
 import SectionHeader from './components/UI/SectionHeader';
 import StatCard from './components/UI/StatCard';
 import TestimonialCard from './components/UI/TestimonialCard';
+import Navbar from './components/layout/Navbar';
 
 function App() {
   return (
@@ -262,6 +263,16 @@ function App() {
           reviews={12}
           at='Yelp'
           className='max-w-sm'
+        />
+      </div>
+      <div className='p-10 bg-gray-100'>
+        <Navbar
+          user={{
+            id: '1',
+            name: 'Lina Smith',
+            avatar: undefined,
+            authenticated: false,
+          }}
         />
       </div>
     </>

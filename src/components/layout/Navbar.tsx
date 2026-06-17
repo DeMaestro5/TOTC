@@ -1,0 +1,97 @@
+import { NAV_LINKS } from '../../constants/navigation';
+import type { User } from '../../types/user.types';
+import Avatar from '../UI/Avatar';
+import Button from '../UI/Button';
+
+interface NavbarProps {
+  user?: User;
+  className?: string;
+  transparent?: boolean;
+}
+
+const Navbar = ({ user, transparent = false, className = '' }: NavbarProps) => {
+  const links = NAV_LINKS;
+  return (
+    <nav
+      className={`relative flex w-full px-10 py-4 transition-colors duration-300 flex-row justify-between items-center gap-4 sticky top-0 z-50 ${
+        transparent ? 'bg-transparent' : 'bg-white shadow-md'
+      } ${className}`}
+    >
+      {/* LEFT — Logo */}
+      <div className='flex items-center gap-2'>
+        <div
+          className={`w-9 h-9 rounded-lg flex items-center justify-center font-black text-lg ${
+            transparent ? 'bg-white text-primary' : 'bg-primary text-white'
+          }`}
+        >
+          C
+        </div>
+        <span
+          className={`font-black text-xl tracking-tight ${
+            transparent ? 'text-white' : 'text-navy'
+          }`}
+        >
+          cursus
+        </span>
+      </div>
+      {/* MIDDLE — Nav links */}
+      <div className='absolute left-1/2 -translate-x-1/2 flex items-center gap-8'>
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className={`text-sm font-normal transition-colors duration-200 ${
+              transparent
+                ? 'text-white hover:text-white/70'
+                : 'text-navy hover:text-primary'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+      {/* RIGHT — Auth */}
+      <div className='flex items-center gap-3'>
+        {user && user.authenticated ? (
+          // Authenticated state
+          <div className='flex items-center gap-2 cursor-pointer'>
+            <Avatar
+              src={user.avatar}
+              alt={user.name}
+              initials={user.name.slice(0, 2).toUpperCase()}
+              size='sm'
+            />
+            <span
+              className={`text-sm font-medium ${
+                transparent ? 'text-white' : 'text-navy'
+              }`}
+            >
+              {user.name}
+            </span>
+            <span className={transparent ? 'text-white' : 'text-navy'}>▾</span>
+          </div>
+        ) : (
+          // Unauthenticated state
+          <>
+            <Button variant='outline' size='sm'>
+              Login
+            </Button>
+            <Button
+              variant='outline'
+              size='sm'
+              className={`${
+                transparent
+                  ? 'border-white/50 text-white hover:bg-white/10'
+                  : ''
+              }`}
+            >
+              Sign Up
+            </Button>
+          </>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
