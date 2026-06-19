@@ -22,7 +22,9 @@ const StatCard = ({
       >
         {value}
       </span>
-      <p className='text-sm font-normal text-gray-text'>{label}</p>
+      <p className='text-sm font-normal text-gray-text tracking-widest'>
+        {label}
+      </p>
     </div>
   );
 };
