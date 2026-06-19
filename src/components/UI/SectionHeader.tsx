@@ -29,13 +29,19 @@ const SectionHeader = ({
     );
   };
 
+  const hasCustomTextColor = className.includes('text-');
+
   return (
     <div
       className={`${
         align === 'center' ? 'text-center' : 'text-left'
       } ${className}`}
     >
-      <h2 className='text-3xl font-bold text-primary-dark leading-tight'>
+      <h2
+        className={`text-3xl font-bold ${
+          !hasCustomTextColor ? 'text-primary-dark' : ''
+        } leading-tight`}
+      >
         {renderTitle()}
       </h2>
       {subtitle && (
