@@ -1,6 +1,12 @@
 import { forwardRef } from 'react';
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'white' | 'accent';
+export type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'white'
+  | 'accent'
+  | 'blue';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -19,6 +25,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     'bg-transparent text-primary border border-primary hover:bg-primary/10',
   white: 'bg-white text-primary hover:bg-primary/10 border border-primary',
   accent: 'bg-accent text-white hover:bg-accent/90 border border-transparent',
+  blue: 'bg-blue text-white hover:bg-blue/90  border-transparent',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -43,7 +50,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <button
@@ -80,7 +87,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {rightIcon && <span className='shrink-0'>{rightIcon}</span>}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';
