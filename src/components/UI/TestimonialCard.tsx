@@ -7,6 +7,7 @@ interface TestimonialCardProps {
   rating: number;
   at: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const TestimonialCard = ({
@@ -15,11 +16,12 @@ const TestimonialCard = ({
   reviews,
   rating,
   at,
+  style,
   className = '',
 }: TestimonialCardProps) => {
   return (
     <div
-      className={`bg-white rounded-2xl shadow-lg flex flex-col gap-4 p-6 border-l-[6px] border-accent ${className}`}
+      className={`bg-white rounded-2xl shadow-lg flex flex-col gap-4 p-6 border-l-[6px] border-accent ${style} ${className}`}
     >
       <div className='flex flex-row gap-3'>
         <div className='w-[1px] bg-navy/10 rounded-full shrink-0' />
