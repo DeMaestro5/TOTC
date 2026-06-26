@@ -2,6 +2,7 @@ import { NAV_LINKS } from '../../constants/navigation';
 import type { User } from '../../types/user.types';
 import Avatar from '../UI/Avatar';
 import Button from '../UI/Button';
+import Logo from '../UI/logo';
 
 interface NavbarProps {
   user?: User;
@@ -18,22 +19,7 @@ const Navbar = ({ user, transparent = false, className = '' }: NavbarProps) => {
       } ${className}`}
     >
       {/* LEFT — Logo */}
-      <div className='flex items-center gap-2 cursor-pointer'>
-        <div
-          className={`w-9 h-9 rounded-lg flex items-center justify-center font-black text-lg ${
-            transparent ? 'bg-white text-primary' : 'bg-primary text-white'
-          }`}
-        >
-          C
-        </div>
-        <span
-          className={`font-black text-xl tracking-tight ${
-            transparent ? 'text-white' : 'text-navy'
-          }`}
-        >
-          cursus
-        </span>
-      </div>
+      <Logo transparent={true} />
       {/* MIDDLE — Nav links */}
       <div className='absolute left-1/2 -translate-x-1/2 flex items-center gap-16'>
         {links.map((link) => (

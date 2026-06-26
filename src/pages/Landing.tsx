@@ -7,6 +7,7 @@ import OurFeatures from '../components/sections/landing/OurFeatures';
 import OurSuccess from '../components/sections/landing/OurSuccess';
 import Testimonial from '../components/sections/landing/Testimonial';
 import WhatIs from '../components/sections/landing/WhatIs';
+import Footer from '../components/UI/Footer';
 
 export default function Landing() {
   return (
@@ -22,6 +23,7 @@ export default function Landing() {
         <Testimonial />
         <News />
       </div>
+      <Footer />
     </div>
   );
 }
