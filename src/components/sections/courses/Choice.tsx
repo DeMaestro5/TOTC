@@ -1,33 +1,29 @@
-import { RECOMMENDED_COURSES } from '../../../constants/courses-page';
+import { TOP_CHOICE_COURSES } from '../../../constants/courses-page';
 import CourseCard from '../../UI/courses/CourseCard';
-import NavigationButtons from '../../UI/NavigationButtons';
 
-export default function Recommended({ user }) {
+export default function Choice({ user }) {
   return (
     <section className='px-16 py-16'>
-      <div className='flex flex-col gap-6'>
+      <div className='flex flex-col gap-10'>
         <div className='flex justify-between items-center'>
-          <h3 className='text-2xl font-semibold'>Recommended for you</h3>
-          <p className='font-semibold text-sm text-primary cursor-pointer hover:underline'>
+          <h3 className='font-semibold text-2xl'>Get choice of your course</h3>
+          <p className='text-sm font-semibold text-primary hover:underline cursor-pointer'>
             see all
           </p>
         </div>
         <div className='flex gap-6'>
-          {RECOMMENDED_COURSES.map((course) => (
+          {TOP_CHOICE_COURSES.map((course) => (
             <CourseCard
               thumbnail={course.thumbnail}
               title={course.title}
               description={course.description}
-              category={course.category}
               duration={course.duration}
               price={course.price}
               originalPrice={course.originalPrice}
+              category={course.category}
               user={user}
             />
           ))}
-        </div>
-        <div className='ml-auto'>
-          <NavigationButtons />
         </div>
       </div>
     </section>
