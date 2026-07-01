@@ -12,7 +12,7 @@ export default function TopEdCard({
   description,
 }: TopEdCardProps) {
   return (
-    <div className='relative w-70 h-70'>
+    <div className='relative w-full h-80'>
       <img
         src={bgImage}
         alt='bgImage'

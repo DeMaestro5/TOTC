@@ -6,6 +6,7 @@ import {
   RECOMMENDED_COURSES,
   STUDENTS_VIEWING_COURSES,
   TOP_CHOICE_COURSES,
+  TOP_ED_OFFERS,
   type PageCourse,
 } from '../../constants/courses-page';
 
@@ -80,7 +81,7 @@ export default function CourseDetail({ user }: CourseDetailProps) {
               see all
             </p>
           </div>
-          <div className='flex gap-6'>
+          <div className='flex gap-6 py-6'>
             {RECOMMENDED_COURSES.map((course) => (
               <CourseCard
                 id={course.id}
@@ -100,7 +101,7 @@ export default function CourseDetail({ user }: CourseDetailProps) {
       </div>
       <div className='px-16 py-16'>
         <Everything />
-        <div className='px-16 py-16 bg-sky-200/20'>
+        <div className='px-16 py-16 '>
           <div className='flex flex-col gap-6'>
             <div className='flex justify-between items-center'>
               <h3 className='text-2xl font-semibold'>
@@ -110,9 +111,15 @@ export default function CourseDetail({ user }: CourseDetailProps) {
                 see all
               </p>
             </div>
-            <div className='flex gap-6'>
-              {RECOMMENDED_COURSES.map((course) => (
-                <TopEdCard />
+            <div className='flex justify-between gap-6 py-6'>
+              {TOP_ED_OFFERS.map((offer) => (
+                <TopEdCard
+                  title={offer.title}
+                  bgImage={offer.bgImage}
+                  percentage={offer.percentage}
+                  description={offer.description}
+                  key={offer.id}
+                />
               ))}
             </div>
           </div>
